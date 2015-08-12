@@ -3,7 +3,11 @@
 
 Vagrant.configure(2) do |config|
 
+  # pinning to v1.0.1 of the box to get Puppet 3.7.x vs
+  # newer boxes that use 4.x
   config.vm.box = "puppetlabs/centos-6.6-64-puppet"
+  config.vm.box_version = '1.0.1'
+  
 
   config.vm.provider :virtualbox do |vb|
     vb.customize [ "modifyvm", :id, "--cpus", "4"]
