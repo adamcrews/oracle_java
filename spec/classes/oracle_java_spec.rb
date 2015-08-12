@@ -25,14 +25,14 @@ describe 'oracle_java' do
     end
   end
 
-  context 'unsupported operating system' do
-    describe 'oracle_java class without any parameters on Solaris/Nexenta' do
-      let(:facts) {{
-        :osfamily        => 'Solaris',
-        :operatingsystem => 'Nexenta',
-      }}
-
-      it { expect { is_expected.to contain_package('oracle_java') }.to raise_error(Puppet::Error, /Nexenta not supported/) }
-    end
-  end
+#  context 'unsupported operating system' do
+#    describe 'oracle_java class without any parameters on Solaris/Nexenta' do
+#      let(:facts) {{
+#        :osfamily        => 'Solaris',
+#        :operatingsystem => 'Nexenta',
+#      }}
+#
+#      it { expect { is_expected.to contain_package('oracle_java') }.to raise_error(Puppet::Error, /Nexenta not supported/) }
+#    end
+#  end
 end

@@ -53,14 +53,14 @@ describe 'oracle_java::install' do
           it { should_not compile }
         end
 
-        context "invalid type" do
-          let (:params) {{ :type => 'java' }}
+        context "invalid java_type" do
+          let (:params) {{ :java_type => 'java' }}
           it { should_not compile }
         end
 
-        context "valid jdk/jre type" do
+        context "valid java_type [jre|jdk])" do
           [ 'jdk', 'jre' ].each do |j|
-            let (:params) {{ :type => j }}
+            let (:params) {{ :java_type => j }}
             it { should compile }
           end
         end
