@@ -11,10 +11,16 @@
 #   e.g. "Specify one or more upstream ntp servers as an array."
 #
 class oracle_java (
-  $package_name = $::oracle_java::params::package_name,
-  $service_name = $::oracle_java::params::service_name,
+  $java_type      = 'jre',
+  $java_versions  = [ '8u51' ],
+  $java_dir       = '/usr/java',
 ) inherits ::oracle_java::params {
 
   # validate parameters here
+  validate_re($java_type, '^(jdk|jre)$', "\$java_type (${java_type}) must be 'jdk' or 'jre'")
+
+  oracle_java::install { $java_versions:
+    java_type => $java_type,
+  }
 
 }

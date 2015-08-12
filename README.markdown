@@ -13,26 +13,27 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves. This is your 30 second elevator pitch for your module. Consider including OS/Puppet version it works with.       
+This module will download, install, and configure the Oracle version 
+of Java.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology the module integrates with and what that integration enables. This section should answer the questions: "What does this module *do*?" and "Why would I use it?"
-
-If your module has a range of functionality (installation, configuration, management, etc.) this is the time to mention it.
+You may optionally download the JDK or the JRE for Java 7 or Java 8.
+You can manage multiple versions of java on a node.
+You may download direct from Oracle, or supply your own download source.
+If you are Downloading direct from Oracle, this module assumes you have accepted their license agreement.
 
 ## Setup
 
 ### What oracle_java affects
 
-* A list of files, packages, services, or operations that the module will alter, impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form. 
+* By default the JRE is installed.
+* The default install path is /usr/java
+* The latest version installed will be linked as /usr/java/default
+* /etc/alternatives/java will be updated to look at the default install
 
-### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled, etc.), mention it here. 
-
+### TODO: fix from here down!!!
 ### Beginning with oracle_java
 
 The very basic steps needed for a user to get the module up and running. 
