@@ -1,0 +1,37 @@
+{
+  "name": "adamcrews-oracle_java",
+  "version": "0.1.0",
+  "author": "adamcrews",
+  "summary": "Install and manage the Oracle version of the JDK and JRE.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/adamcrews/oracle_java",
+  "project_page": "https://github.com/adamcrews/oracle_java",
+  "issues_url": "https://github.com/adamcrews/oracle_java/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.7.0"
+    },
+    {
+      "name": "nanliu-archive",
+      "version_requirement": ">= 0.3.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    }
+  ]
+}
