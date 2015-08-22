@@ -1,0 +1,6 @@
+alternatives --install /usr/bin/java java <%= @java_dir %>/<%= @java_name %>/bin/java <%= @_real_priority %> \
+<% @bin_files.each do |f| -%>
+  --slave /usr/bin/<%= f %> <%= f %> <%= @java_dir %>/<%= @java_name %>/bin/<%= f %> \
+  --slave /usr/share/man/man1/<%= f %>.1 <%= f %>.1 <%= @java_dir %>/<%= @java_name %>/man/man1/<%= f %>.1 \
+<% end -%>
+  --slave /usr/share/man/man1/java.1 java.1 <%= @java_dir %>/<%= @java_name %>/man/man1/java.1

@@ -18,3 +18,14 @@ oracle_java::install { [ '8u40', '7u80' ]: }
 oracle_java::install { [ '7u79', '8u45' ]:
   java_type => 'jdk',
 }
+
+oracle_java::alternative { '8u40':
+  java_type => 'jre',
+  java_path => '/usr/java'
+}
+
+oracle_java::alternative { '7u79':
+  java_type => 'jdk',
+  java_path => '/usr/java'
+}
+

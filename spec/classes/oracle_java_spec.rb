@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'spec_helper'
 
 describe 'oracle_java' do
@@ -11,10 +13,16 @@ describe 'oracle_java' do
         context "oracle_java class without any parameters" do
           let(:params) {{ }}
 
-          it { is_expected.to compile.with_all_deps }
+          latest_ver = '8u60'
 
-          #it { is_expected.to contain_class('oracle_java::params') }
-          #it { is_expected.to contain_class('oracle_java::install').that_comes_before('oracle_java::config') }
+          it { is_expected.to compile.with_all_deps }
+          it { is_expected.to contain_class('oracle_java')}
+          it { is_expected.to contain_class('oracle_java::params') }
+          it { is_expected.to contain_oracle_java__install(latest_ver).with(:java_type => 'jre')}
+          it { is_expected.to contain_archive("/usr/java/.dl_cache/jre-#{latest_ver}-linux-x64.tar.gz")}
+          it { is_expected.to contain_oracle_java__alternative(latest_ver)}
+          #it { is_expected.to contain_oracle_java__install('8u60').with(:java_type => 'jre') }
+           #.that_comes_before('oracle_java::config') }
           #it { is_expected.to contain_class('oracle_java::config') }
           #it { is_expected.to contain_class('oracle_java::service').that_subscribes_to('oracle_java::config') }
 

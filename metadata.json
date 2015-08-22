@@ -1,6 +1,6 @@
 {
   "name": "adamcrews-oracle_java",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "author": "adamcrews",
   "summary": "Install and manage the Oracle version of the JDK and JRE.",
   "license": "Apache-2.0",
