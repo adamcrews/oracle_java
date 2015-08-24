@@ -5,7 +5,7 @@ require 'spec_helper'
 describe 'oracle_java::alternative' do
   context 'supported operating systems' do
     on_supported_os({:hardwaremodels => [ 'i386', 'x86_64']}).each do |os, facts|
-      context "on #{os}" do
+      context "on #{os} with puppet v#{Puppet.version}" do
         let (:facts) do
           facts
         end

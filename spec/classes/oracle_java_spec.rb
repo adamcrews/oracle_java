@@ -5,7 +5,7 @@ require 'spec_helper'
 describe 'oracle_java' do
   context 'supported operating systems' do
     on_supported_os.each do |os, facts|
-      context "on #{os}" do
+      context "on #{os} with puppet v#{Puppet.version}" do
         let(:facts) do
           facts
         end
