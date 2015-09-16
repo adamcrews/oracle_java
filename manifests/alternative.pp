@@ -1,3 +1,40 @@
+# == Define: oracle_java::alternative
+#
+# This defined type will update the /etc/alternatives system with sane values
+# for jdk and jre.  It will not set a default alternative, but rather set
+# sale priorities for java.  The newest version will take precidence.
+# It is worth noting that this module makes no attempt to remove alternatives
+# entries should you decide to stop managing a java version.
+#
+# === Parameters
+#
+# [*java_dir*]
+#   The base directory that java is installed to.
+#   Default: none, required.
+#
+# [*java_type*]
+#   The install type, jre/jdk.
+#   Default: none, required.
+#
+# [*priority*]
+#   A custom priority to use for /etc/alternatives.
+#   Default: System configured.
+#
+# === Examples
+#
+#  oracle_java::alternative { '8u60':
+#    java_dir  => '/home/my_java',
+#    java_type => 'jdk',
+#  }
+#
+# === Authors
+#
+# Adam Crews <adam.crews@gmail.com>
+#
+# === Copyright
+#
+# Copyright 2015 Adam Crews, unless otherwise noted.
+#
 define oracle_java::alternative (
   $java_dir,
   $java_type,
@@ -42,11 +79,10 @@ define oracle_java::alternative (
     'servertool', 'tnameserv', 'unpack200', 'wsgen', 'wsimport', 'xjc',
   ]
 
-  # This template uses $java_home, $java_name, $_real_priority and $bin_files
+  # This template uses $java_dir, $java_name, $_real_priority and $bin_files
   exec { "Alternatives for ${version}":
     command => template("${module_name}/alternatives.erb"),
     path    => [ '/usr/bin', '/usr/sbin', '/bin' ],
-    unless  => "alternatives --display java | grep -q \"${java_home}/${java_name}/bin/java - priority ${priority}\""
+    unless  => "alternatives --display java | grep -q \"${java_dir}/${java_name}/bin/java - priority ${_real_priority}\""
   }
-
 }
