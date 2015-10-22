@@ -18,7 +18,7 @@
 #
 class oracle_java (
   $java_type      = 'jre',
-  $java_versions  = [ '8u60' ],
+  $java_versions  = [ '8u66' ],
 ) inherits ::oracle_java::params {
 
   oracle_java::install { $java_versions:
