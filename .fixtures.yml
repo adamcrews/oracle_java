@@ -5,6 +5,6 @@ fixtures:
       ref: '4.7.0'
     archive:
       repo: 'puppet/archive'
-      ref: '0.4.4'
+      ref: '0.4.8'
   symlinks:
     oracle_java: "#{source_dir}"     
