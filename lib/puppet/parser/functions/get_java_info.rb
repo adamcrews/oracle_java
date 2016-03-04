@@ -18,6 +18,10 @@ module Puppet::Parser::Functions
 
   # man this is ugly...
   java_build = {
+    :"8u74" => '-b02',
+    :"8u73" => '-b02',
+    :"8u72" => '-b15',
+    :"8u71" => '-b15',
     :"8u66" => '-b17',
     :"8u65" => '-b17',
     :"8u60" => '-b27',

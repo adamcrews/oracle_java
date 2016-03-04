@@ -4,7 +4,7 @@ fixtures:
       repo: 'puppetlabs/stdlib'
       ref: '4.7.0'
     archive:
-      repo: 'nanliu/archive'
-      ref: '0.3.0'
+      repo: 'puppet/archive'
+      ref: '0.4.8'
   symlinks:
     oracle_java: "#{source_dir}"     
